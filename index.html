@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GNA Company · 연봉 재계약 리뷰</title>
+<title>GNA Company · 연봉 재계약 리뷰 (셀프리뷰)</title>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -22,17 +22,6 @@ body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;backgr
 .gate-error{color:#ef4444;font-size:13px;margin-top:8px;min-height:20px;text-align:center}
 .gate-btn{padding:12px 32px;border-radius:12px;background:#2563eb;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;font-family:inherit;margin-top:8px;transition:background .2s;width:100%;max-width:320px}
 .gate-btn:hover{background:#1d4ed8}
-/* ── Landing ── */
-.landing{min-height:100vh;background:linear-gradient(160deg,#0f172a 0%,#1e293b 50%,#0f172a 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px}
-.landing h1{font-size:32px;font-weight:800;color:#f8fafc;margin:0 0 8px}
-.landing .sub{color:#64748b;font-size:14px;margin:0 0 40px;line-height:1.6}
-.landing .tag{font-size:13px;letter-spacing:3px;color:#94a3b8;margin-bottom:12px;font-weight:600}
-.landing .welcome{color:#60a5fa;font-size:14px;margin-bottom:32px;font-weight:500}
-.mode-btn{width:100%;padding:18px 24px;border-radius:14px;border:1.5px solid #334155;background:linear-gradient(135deg,#1e293b,#334155);color:#f8fafc;font-size:16px;font-weight:700;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;transition:border-color .2s;margin-bottom:12px;font-family:inherit}
-.mode-btn:hover{border-color:#2563eb}
-.mode-btn .desc{font-size:12px;font-weight:400;color:#94a3b8;margin-top:4px}
-.mode-btn .arrow{font-size:22px}
-.draft-badge{display:inline-block;padding:2px 8px;border-radius:6px;background:#fef3c7;color:#92400e;font-size:11px;font-weight:600;margin-left:8px}
 /* ── Header ── */
 .header{background:#0f172a;padding:16px 24px;position:sticky;top:0;z-index:20}
 .header-inner{max-width:720px;margin:0 auto}
@@ -79,7 +68,7 @@ body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;backgr
 .guide-text strong{color:#1e293b}
 .guide-text span{color:#64748b}
 /* ── Grade ── */
-.grade-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.grade-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px}
 .grade-item{padding:10px 14px;border-radius:10px;background:#fff;border:2px solid #e5e7eb;cursor:pointer;transition:all .15s}
 .grade-item:hover{border-color:#93c5fd}
 .grade-item.active{border-color:#2563eb;background:#eff6ff}
@@ -122,7 +111,7 @@ body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;backgr
 .scroll-top{position:fixed;bottom:70px;right:20px;width:40px;height:40px;border-radius:50%;background:#2563eb;color:#fff;border:none;cursor:pointer;font-size:18px;display:none;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(37,99,235,.3);z-index:10;transition:opacity .2s}
 .scroll-top.show{display:flex}
 @media(max-width:480px){
-.landing h1,.gate h1{font-size:26px}
+.gate h1{font-size:26px}
 .grade-grid{grid-template-columns:1fr}
 .scale-row{gap:5px}
 .scale-btn{width:44px;font-size:12px}
@@ -168,8 +157,8 @@ const CV=[
 {en:"Courage",kr:"용기",color:"#DC2626",bg:"#FEF2F2",border:"#FECACA",beh:["실패는 또 다른 시작점","주저함은 기회를 놓칠 뿐","변화의 시작은 해오던 일로부터"]},
 ];
 const SI=[{n:1,l:"인지 단계",d:"가치를 이해하고 있으나, 업무에서 실천으로 이어지지 못한 단계"},{n:2,l:"시도 단계",d:"실천을 시도하고 있으나, 상황에 따라 일관성이 부족한 단계"},{n:3,l:"실천 단계",d:"업무 중 해당 가치를 의식하고 꾸준히 실천하는 단계"},{n:4,l:"적극적 실천",d:"가치를 자연스럽게 업무에 녹여내며, 주도적으로 실천하는 단계"},{n:5,l:"팀에 전파",d:"본인의 실천을 넘어 동료에게도 긍정적 영향을 주는 단계"}];
-const GG=[{g:"A",l:"목표를 초과 달성함",d:"핵심 목표를 넘어서는 성과를 만들었고, 조직 전체의 성과 향상에 주도적으로 기여함"},{g:"B",l:"목표를 안정적으로 달성함",d:"맡은 목표를 일관되게 달성했으며, 팀 내에서 신뢰할 수 있는 기여자로 역할을 수행함"},{g:"C",l:"목표 달성이 부분적이었음",d:"일부 목표는 달성했으나, 기대 수준에는 미치지 못하는 부분이 있었음"},{g:"D",l:"목표 달성에 미흡함",d:"목표 대비 성과가 크게 부족하며, 구체적인 개선 계획과 실행이 필요함"}];
-// ═══ Section definitions ═══
+const GG=[{g:"S",l:"기대를 압도적으로 뛰어넘음",d:"조직 차원의 임팩트를 만들었고, 본인 역할을 넘어 회사 성과·문화에 결정적으로 기여함"},{g:"A",l:"목표를 초과 달성함",d:"핵심 목표를 넘어서는 성과를 냈고, 팀의 성과 향상을 주도함"},{g:"B",l:"목표를 안정적으로 달성함",d:"맡은 목표를 일관되게 달성했으며, 신뢰할 수 있는 핵심 기여자로 역할을 수행함"},{g:"C",l:"목표 달성이 부분적이었음",d:"일부 목표는 달성했으나, 기대 수준에 미치지 못한 부분이 있었음"},{g:"D",l:"목표 달성에 미흡함",d:"목표 대비 성과가 크게 부족하며, 구체적인 개선 계획과 실행이 필요함"}];
+// ═══ Section definitions (셀프 전용) ═══
 const selfS=[
 {id:"info",t:"기본 정보",nav:"기본정보",f:[{k:"name",l:"영어 닉네임(영어)",tp:"text",hint:"작성 예시: cherry"},{k:"team",l:"소속(팀명/스쿼드)",tp:"text"},{k:"joinDate",l:"입사일",tp:"date"},{k:"writeDate",l:"작성일",tp:"date"}]},
 {id:"s1",t:"Section 1. 성과 리뷰",nav:"성과 리뷰",sub:"지난 1년간의 성과를 정성·정량 양면으로 돌아봐 주세요.",f:[{k:"s1q1",l:"지난 1년간 내가 직접 기여한 주요 성과와, 그 결과가 팀이나 서비스에 준 영향을 구체적으로 적어주세요.\n가능하다면 핵심 지표(숫자)도 함께 기재해주세요. (예: MAU 증가율, ROAS, 처리 건수, 매출 기여액 등)",tp:"ta"},{k:"s1q2",l:"업무 목표를 달성하지 못한 일이 있다면, 그 원인은 무엇이었고\n돌아봤을 때 어떤 인사이트 혹은 개선점을 발견하셨나요?",tp:"ta"}]},
@@ -178,55 +167,20 @@ const selfS=[
 {id:"s4",t:"Section 4. 핵심가치 자가 평가",nav:"핵심가치",sub:"GNA의 3대 핵심가치에 대해 스스로 평가해 주세요.",tp:"cv",mode:"self"},
 {id:"s5",t:"Section 5. 종합 자가 평가",nav:"종합 평가",tp:"final",f:[{k:"s5q1",l:"선택한 등급의 근거와 함께, 다음 1년간 집중적으로 성장시키고 싶은 부분을 적어주세요.",tp:"ta"}]},
 ];
-const leaderS=[
-{id:"info",t:"기본 정보",nav:"기본정보",f:[{k:"targetName",l:"평가 대상자 이름",tp:"text"},{k:"targetEmail",l:"대상자 이메일",tp:"email"},{k:"targetTeam",l:"대상자 소속(팀명/스쿼드)",tp:"text"},{k:"reviewerName",l:"리드/동료 이름",tp:"text"},{k:"reviewerTeam",l:"리드/동료 소속(팀명/스쿼드)",tp:"text"}]},
-{id:"s1",t:"Section 1. 성과 평가",nav:"성과 평가",sub:"대상자의 주요 성과와 미흡했던 부분을 평가해 주세요.",f:[{k:"s1q1",l:"이 구성원이 지난 1년간 주도하거나 핵심적으로 기여한 주요 성과와 그 영향을 적어주세요.\n인상적이었던 판단이나 선택이 있었다면 함께 기재해주세요.\n가능하다면 핵심 지표(숫자)도 함께 적어주세요. (예: 설정 목표 대비 달성률, 프로젝트 완료율, 매출 기여도 등)",tp:"ta"},{k:"s1q2",l:"이 구성원이 업무 목표를 달성하지 못한 일이 있었다면, 그 원인은 무엇이었고\n해당 경험에서 어떤 인사이트 혹은 개선점이 있었다고 보시나요?",tp:"ta"}]},
-{id:"s2",t:"Section 2. 협업 & 신뢰",nav:"협업·신뢰",sub:"회사 목표를 위한 추가 기여와 신뢰 구축 정도를 평가해 주세요.",f:[{k:"s2q1",l:"이 구성원은 소속 팀 업무 외에 타팀과 협업하거나 추가 업무를 진행한 경험이 있나요?\n해당 경험과 그 과정에서 가져온 변화(매출/퍼포먼스 향상/리소스 감축 등)를 적어주세요.",tp:"ta"},{k:"s2q2",l:"협업 과정에서 주도적으로 의견을 개진하고, 동료 간 신뢰를 쌓는 행동(투명한 정보 공유, 약속 이행, 피드백 수용 등)을 일관되게 보여주었나요? (선택)",tp:"ta",opt:true}]},
-{id:"s3",t:"Section 3. 성장 & 혁신",nav:"성장·혁신",sub:"자기 주도적 개선과 새로운 시도를 평가해 주세요.",f:[{k:"s3q1",l:"이 구성원은 스스로 개선점을 찾고 퍼포먼스를 높이기 위한 새로운 접근(AI·자동화 도구 활용 포함)을 시도하는 태도를 보였나요?\n그 시도가 가져온 변화를 적어주세요.",tp:"ta"}]},
-{id:"s4",t:"Section 4. 핵심가치 평가",nav:"핵심가치",sub:"GNA의 3대 핵심가치 실천 정도를 평가해 주세요.",tp:"cv",mode:"leader"},
-{id:"s5",t:"Section 5. 종합 평가",nav:"종합 평가",tp:"final",f:[{k:"s5q1",l:"선택한 등급의 근거와 함께, 앞으로 이 구성원이 더 강화하거나 변화해야 할 역량을 적어주세요.",tp:"ta"}]},
-];
 // ═══ State ═══
-let D={},mode=null,authEmail='',submitted=false,saving=false,activeNav=0;
-function secs(){return mode==='self'?selfS:leaderS}
-function draftKey(){return 'gna_draft_'+mode+'_'+authEmail}
+let D={},mode='self',authEmail='',submitted=false,saving=false,activeNav=0;
+function secs(){return selfS}
+function draftKey(){return 'gna_draft_self_'+authEmail}
 // ═══ Draft ═══
 function saveDraft(){
-if(!mode||!authEmail)return;
+if(!authEmail)return;
 try{localStorage.setItem(draftKey(),JSON.stringify({data:D,ts:Date.now()}))}catch(e){}
 }
 function loadDraft(){try{const raw=localStorage.getItem(draftKey());if(!raw)return null;return JSON.parse(raw)}catch(e){return null}}
 function clearDraft(){try{localStorage.removeItem(draftKey())}catch(e){}}
-function hasDraft(m){try{return!!localStorage.getItem('gna_draft_'+m+'_'+authEmail)}catch(e){return false}}
+function hasDraft(){try{return!!localStorage.getItem('gna_draft_self_'+authEmail)}catch(e){return false}}
 function showToast(msg){const t=document.createElement('div');t.className='saved-toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2200)}
-setInterval(()=>{if(mode&&authEmail&&!submitted){saveDraft()}},30000);
-// ═══ Session — 탭 정리/새로고침에도 작성 위치·내용 유지 ═══
-const SESSION_KEY='gna_session';
-function saveSession(){
-if(!authEmail)return;
-try{localStorage.setItem(SESSION_KEY,JSON.stringify({authEmail:authEmail,mode:mode,ts:Date.now()}))}catch(e){}
-}
-function loadSession(){
-try{
-const raw=localStorage.getItem(SESSION_KEY);if(!raw)return null;
-const s=JSON.parse(raw);
-if(!s||!s.authEmail||!AUTH[s.authEmail])return null;
-if(Date.now()-(s.ts||0)>72*60*60*1000)return null; // 72시간(3일) 경과 시 만료
-return s;
-}catch(e){return null}
-}
-function clearSession(){try{localStorage.removeItem(SESSION_KEY)}catch(e){}}
-// 입력 중 자동 저장(디바운스 0.8초) — 타이핑 내용을 거의 실시간으로 보존
-let _saveTimer=null;
-function scheduleSave(){
-if(_saveTimer)clearTimeout(_saveTimer);
-_saveTimer=setTimeout(()=>{saveDraft();saveSession()},800);
-}
-// 탭이 백그라운드로 가거나 페이지가 닫히기 직전 즉시 저장 (모바일 탭 정리 대비)
-document.addEventListener('visibilitychange',()=>{
-if(document.visibilityState==='hidden'){saveDraft();saveSession()}
-});
-window.addEventListener('pagehide',()=>{saveDraft();saveSession()});
+setInterval(()=>{if(authEmail&&!submitted){saveDraft()}},30000);
 // ═══ Section completion check ═══
 function isSectionFilled(sec){
 if(sec.tp==='cv') return CV.every(v=>D[v.en+'_score']&&(D[v.en+'_text']||'').trim());
@@ -243,10 +197,10 @@ async function submit(){
 if(!allFilled()){showToast('⚠️ 미작성 항목이 있습니다');return}
 if(!confirm('제출하시겠습니까? 제출 후에는 수정할 수 없습니다.'))return;
 saving=true;updateSubmitBar();
-const ts=new Date().toISOString(),p={...D,_type:mode,_email:authEmail,_timestamp:ts};
-try{localStorage.setItem('gna_'+mode+'_'+ts,JSON.stringify(p))}catch(e){}
+const ts=new Date().toISOString(),p={...D,_type:'self',_email:authEmail,_timestamp:ts};
+try{localStorage.setItem('gna_self_'+ts,JSON.stringify(p))}catch(e){}
 if(SHEET_WEBHOOK_URL)try{await fetch(SHEET_WEBHOOK_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)})}catch(e){}
-clearDraft();clearSession();saving=false;submitted=true;R();
+clearDraft();saving=false;submitted=true;R();
 }
 // ═══ Renderers ═══
 function rScaleGuide(){
@@ -261,7 +215,7 @@ b.appendChild(h('div',{className:'title'},'종합 등급 선택 *'));
 const g=h('div',{className:'grade-grid'});
 GG.forEach(x=>{
 const a=D.grade===x.g;
-const i=h('div',{className:'grade-item'+(a?' active':''),onClick:()=>{D.grade=x.g;reRenderSection('s5');updateNav();updateSubmitBar();scheduleSave()}});
+const i=h('div',{className:'grade-item'+(a?' active':''),onClick:()=>{D.grade=x.g;reRenderSection('s5');updateNav();updateSubmitBar()}});
 i.appendChild(h('span',{className:'g'},x.g+'.'));
 i.appendChild(h('span',{className:'gl'},x.l));
 i.appendChild(h('div',{className:'gd'},x.d));
@@ -275,11 +229,11 @@ if(!f.opt)l.appendChild(h('span',{className:'req'},' *'));
 d.appendChild(l);
 if(f.tp==='ta'){
 const t=h('textarea',{rows:'5'});t.value=D[f.k]||'';
-t.addEventListener('input',e=>{D[f.k]=e.target.value;updateNav();updateSubmitBar();scheduleSave()});
+t.addEventListener('input',e=>{D[f.k]=e.target.value;updateNav();updateSubmitBar()});
 d.appendChild(t);
 }else{
 const i=h('input',{type:f.tp});i.value=D[f.k]||'';
-i.addEventListener('input',e=>{D[f.k]=e.target.value;updateNav();updateSubmitBar();scheduleSave()});
+i.addEventListener('input',e=>{D[f.k]=e.target.value;updateNav();updateSubmitBar()});
 d.appendChild(i);
 if(f.hint)d.appendChild(h('p',{style:{fontSize:'12px',color:'#94a3b8',marginTop:'5px'}},f.hint));
 }
@@ -293,23 +247,23 @@ ti.appendChild(h('span',{className:'en',style:{color:cv.color}},cv.en));
 card.appendChild(ti);
 const be=h('div',{className:'cv-behaviors'});cv.beh.forEach(b=>be.appendChild(h('span',null,b)));card.appendChild(be);
 const sk=cv.en+'_score',tk=cv.en+'_text';
-const ql=m==='self'?`"${cv.kr}" 가치를 얼마나 잘 실천했나요?`:`이 구성원은 "${cv.kr}" 가치를 얼마나 잘 실천했나요?`;
+const ql=`"${cv.kr}" 가치를 얼마나 잘 실천했나요?`;
 const q1=h('div',{className:'cv-q'},ql);q1.appendChild(h('span',{className:'req'},' *'));card.appendChild(q1);
 const sr=h('div',{className:'scale-row'});
 SI.forEach(s=>{
 const a=D[sk]===s.n;
 const b=h('button',{className:'scale-btn'+(a?' active':''),style:a?{background:cv.color,borderColor:cv.color,color:'#fff'}:{},
-onClick:()=>{D[sk]=s.n;reRenderSection(secId);updateNav();updateSubmitBar();scheduleSave()}});
+onClick:()=>{D[sk]=s.n;reRenderSection(secId);updateNav();updateSubmitBar()}});
 b.appendChild(h('span',null,String(s.n)));
 b.appendChild(h('span',{className:'sl'},s.l));
 sr.appendChild(b);
 });
 card.appendChild(sr);
-const el=m==='self'?'위 점수의 근거가 되는 사례와, 앞으로 더 발전시키고 싶은 부분을 함께 적어주세요.':'위 점수의 근거가 되는 구체적 사례를 적어주세요.';
+const el='위 점수의 근거가 되는 사례와, 앞으로 더 발전시키고 싶은 부분을 함께 적어주세요.';
 const q2=h('div',{className:'cv-q'},el);q2.appendChild(h('span',{className:'req'},' *'));card.appendChild(q2);
 const ta=h('textarea',{rows:'3',style:{border:'1.5px solid #e2e8f0',borderRadius:'10px',fontSize:'13px',lineHeight:'1.6',fontFamily:'inherit',background:'#fff',padding:'10px 14px',width:'100%',outline:'none',boxSizing:'border-box',resize:'vertical'}});
 ta.value=D[tk]||'';
-ta.addEventListener('input',e=>{D[tk]=e.target.value;updateNav();updateSubmitBar();scheduleSave()});
+ta.addEventListener('input',e=>{D[tk]=e.target.value;updateNav();updateSubmitBar()});
 ta.addEventListener('focus',()=>ta.style.borderColor=cv.color);
 ta.addEventListener('blur',()=>ta.style.borderColor='#e2e8f0');
 card.appendChild(ta);
@@ -407,8 +361,8 @@ const app=document.getElementById('app');app.innerHTML='';
 if(!authEmail){
 const g=h('div',{className:'gate'}),inner=h('div',{style:{maxWidth:'420px',width:'100%'}});
 inner.appendChild(h('div',{className:'tag'},'GNA COMPANY'));
-inner.appendChild(h('h1',null,'연봉 재계약 리뷰'));
-inner.appendChild(h('p',{className:'sub'},'한 해를 돌아보며, 서로의 성장을 확인하는 시간입니다'));
+inner.appendChild(h('h1',null,'연봉 재계약 셀프리뷰'));
+inner.appendChild(h('p',{className:'sub'},'한 해를 돌아보며, 나의 성장을 정리하는 시간입니다'));
 const f1=h('div',{className:'gate-field'});f1.appendChild(h('div',{className:'gate-label'},'사내 이메일'));
 const inp1=h('input',{className:'gate-input',type:'email',placeholder:'name@gna.company'});f1.appendChild(inp1);inner.appendChild(f1);
 const f2=h('div',{className:'gate-field'});f2.appendChild(h('div',{className:'gate-label'},'개인 인증 코드'));
@@ -425,34 +379,20 @@ const now=new Date(),expiry=new Date(CODE_EXPIRY_DATE+'T23:59:59');
 if(now>expiry){err.textContent='리뷰 작성 기간이 종료되었습니다. People팀에 문의해주세요.';return}
 if(!AUTH[email]){err.textContent='등록되지 않은 이메일입니다';return}
 if(AUTH[email]!==code){err.textContent='인증 코드가 올바르지 않습니다';return}
-authEmail=email;saveSession();R();
+authEmail=email;
+// 임시저장 이어쓰기
+const dr=loadDraft();if(dr){if(confirm('이전에 임시저장된 내용이 있습니다. 이어서 작성하시겠습니까?')){D=dr.data||{}}else{clearDraft()}}
+R();
 }
 return;
-}
-// Landing
-if(!mode){
-const ld=h('div',{className:'landing'}),inner=h('div',{style:{maxWidth:'480px',width:'100%'}});
-inner.appendChild(h('div',{className:'tag'},'GNA COMPANY'));
-inner.appendChild(h('h1',null,'연봉 재계약 리뷰'));
-inner.appendChild(h('p',{className:'sub'},'한 해를 돌아보며, 서로의 성장을 확인하는 시간입니다'));
-inner.appendChild(h('div',{className:'welcome'},'👋 '+authEmail));
-const b1=h('button',{className:'mode-btn',onClick:()=>{mode='self';D={};submitted=false;const dr=loadDraft();if(dr){if(confirm('이전에 임시저장된 내용이 있습니다. 이어서 작성하시겠습니까?')){D=dr.data||{}}else{clearDraft()}}saveSession();R()}}),i1=h('div');
-const selfLabel=h('span',null,'셀프리뷰 작성');
-if(hasDraft('self'))selfLabel.appendChild(h('span',{className:'draft-badge'},'임시저장 있음'));
-i1.appendChild(selfLabel);i1.appendChild(h('div',{className:'desc'},'대상자 본인이 직접 작성합니다'));b1.appendChild(i1);b1.appendChild(h('span',{className:'arrow'},'→'));inner.appendChild(b1);
-const b2=h('button',{className:'mode-btn',onClick:()=>{mode='leader';D={};submitted=false;const dr=loadDraft();if(dr){if(confirm('이전에 임시저장된 내용이 있습니다. 이어서 작성하시겠습니까?')){D=dr.data||{}}else{clearDraft()}}saveSession();R()}}),i2=h('div');
-const leaderLabel=h('span',null,'리드/동료 평가 작성');
-if(hasDraft('leader'))leaderLabel.appendChild(h('span',{className:'draft-badge'},'임시저장 있음'));
-i2.appendChild(leaderLabel);i2.appendChild(h('div',{className:'desc'},'리드 또는 동료가 대상자를 평가합니다'));b2.appendChild(i2);b2.appendChild(h('span',{className:'arrow'},'→'));inner.appendChild(b2);
-ld.appendChild(inner);app.appendChild(ld);return;
 }
 // Submitted
 if(submitted){
 const dn=h('div',{className:'done'}),inner=h('div',{style:{maxWidth:'420px'}});
 inner.appendChild(h('div',{className:'icon'},'✅'));
 inner.appendChild(h('h2',null,'제출 완료'));
-inner.appendChild(h('p',null,(mode==='self'?'셀프리뷰가':'리드/동료 평가가')+' 성공적으로 제출되었습니다.'));
-inner.appendChild(h('button',{onClick:()=>{clearSession();mode=null;D={};submitted=false;activeNav=0;R()}},'처음으로 돌아가기'));
+inner.appendChild(h('p',null,'셀프리뷰가 성공적으로 제출되었습니다.'));
+inner.appendChild(h('button',{onClick:()=>{location.reload()}},'처음으로 돌아가기'));
 dn.appendChild(inner);app.appendChild(dn);return;
 }
 // ═══ FORM: All sections on one page ═══
@@ -460,11 +400,11 @@ const ss=secs();
 // Header
 const hdr=h('div',{className:'header'}),hi=h('div',{className:'header-inner'}),tp=h('div',{className:'top'}),ld2=h('div');
 ld2.appendChild(h('div',{className:'brand'},'GNA COMPANY'));
-ld2.appendChild(h('h2',null,mode==='self'?'셀프리뷰':'리드/동료 평가'));
+ld2.appendChild(h('h2',null,'셀프리뷰'));
 tp.appendChild(ld2);
 const btns=h('div',{className:'header-btns'});
-btns.appendChild(h('button',{className:'save-btn',onClick:()=>{saveDraft();saveSession();showToast('💾 임시저장 완료')}},'임시저장'));
-btns.appendChild(h('button',{className:'exit-btn',onClick:()=>{saveDraft();if(confirm('임시저장 후 나가시겠습니까?')){mode=null;activeNav=0;saveSession();R()}}},'나가기'));
+btns.appendChild(h('button',{className:'save-btn',onClick:()=>{saveDraft();showToast('💾 임시저장 완료')}},'임시저장'));
+btns.appendChild(h('button',{className:'exit-btn',onClick:()=>{saveDraft();if(confirm('임시저장 후 나가시겠습니까?')){location.reload()}}},'나가기'));
 tp.appendChild(btns);hi.appendChild(tp);
 const pb=h('div',{className:'progress-bar'});pb.appendChild(h('div',{className:'progress-fill',id:'progressFill',style:{width:(filledCount()/ss.length*100)+'%'}}));
 hi.appendChild(pb);hdr.appendChild(hi);app.appendChild(hdr);
@@ -504,21 +444,7 @@ si.appendChild(submitBtn);
 sb.appendChild(si);app.appendChild(sb);
 requestAnimationFrame(()=>setupScrollSpy());
 }
-// ═══ 세션 복원: 탭이 정리되어 새로고침돼도 게이트가 아닌 작성 화면으로 바로 복귀 ═══
-let _restored=false;
-{
-const s=loadSession();
-if(s){
-authEmail=s.authEmail;
-if(s.mode){
-mode=s.mode;
-const dr=loadDraft();
-if(dr&&dr.data){D=dr.data;_restored=true}
-}
-}
-}
 R();
-if(_restored)showToast('💾 작성 중이던 내용을 불러왔어요');
 </script>
 </body>
 </html>
